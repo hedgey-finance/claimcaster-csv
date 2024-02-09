@@ -11,6 +11,7 @@
 
 	const generateCSV = async () => {
 		loading = true;
+    error = '';
 
 		if (!channel) {
 			error = 'Channel name is required';
