@@ -42,7 +42,7 @@
 		}
 
 		try {
-			const csvData = ['address,tokens'];
+			const csvData = ['address,amount'];
 
 			const users = await response.json();
 			if (!users.length) {
@@ -55,7 +55,7 @@
 				const userTokens = randomDistribution
 					? Math.floor(Math.random() * (maxAmount - minAmount + 1)) + minAmount
 					: tokenAmount;
-				if (user.verifications) csvData.push(`${user.verifications[0]},${userTokens}`);
+				if (user.verifications && user.verifications.length > 0) csvData.push(`${user.verifications[0]},${userTokens}`);
 			}
 			if (csvData.length == 1) {
 				error = 'No users with addresses found in the channel';
